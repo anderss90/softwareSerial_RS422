@@ -1,7 +1,9 @@
 # softwareSerial_RS422
 An rs422 version of the Arduino softwareSerial library. It has two TX pins, TX+ and TX-. It only uses one pin for RX, as the positive pin of rs422 can be read as normal rs232. 
 
-NB! It has an EVEN parity bit hard coded in. You can remove this by removing the code under "//write parity bit" on line 489 in src/SoftwareSerial_rs422.cpp
+NB! It has an EVEN parity bit hard coded in. You can remove this by removing the code under "//write parity bit" on line 489 in src/SoftwareSerial_rs422.cpp. You can make it write an ODD parity bit by changing the code under "//calculate parity" in line 467
+
+```
 /*
 //write parity bit
   if (p & 0x01){
@@ -13,3 +15,4 @@ NB! It has an EVEN parity bit hard coded in. You can remove this by removing the
     *reg_minus |= reg_mask_minus; // send 1
   }
 */
+```
